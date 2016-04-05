@@ -36,9 +36,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "배고파요!", Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(this,ResultActivity.class);  /*result엑티비티로 넘어가는 클래스만 만듬*/
-        startActivity(intent);  /*intent넘겨주기*/
+        String name = mName.getText().toString();
+//        if (name == null){
+//            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
+//        }else{
+//            Toast.makeText(this, name+"씨, 배고파요!", Toast.LENGTH_LONG).show();
+//            Intent intent=new Intent(this,ResultActivity.class);  /*result엑티비티로 넘어가는 클래스만 만듬*/
+//            startActivity(intent);  /*intent넘겨주기*/
+//        }
+
+        try{
+            Toast.makeText(this, name+"씨, 배고파요!", Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(this,ResultActivity.class);  /*result엑티비티로 넘어가는 클래스만 만듬*/
+            startActivity(intent);  /*intent넘겨주기*/
+        }catch(NullPointerException e){
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
+        }catch(Exception e){
+            Toast.makeText(this, "뭔지 모르지만 잘 안되네요!", Toast.LENGTH_LONG).show();
+        }
     }
 }
-
