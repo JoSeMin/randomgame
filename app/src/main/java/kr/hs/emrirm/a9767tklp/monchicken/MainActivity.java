@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("name", name); /*적은 데이터만 넘겨야 함*/
             intent.putExtra("age", 10);
             startActivity(intent);  /*intent넘겨주기*/
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
         }catch(NullPointerException e){
             Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
         }catch(Exception e){
